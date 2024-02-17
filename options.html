@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>MindfulSurf</title>
+    <link href="style/picker/standalone.min.css" rel="stylesheet" />
+    <link href="style/picker/clockpicker.min.css" rel="stylesheet" />
+    <link href="style/settings.css" rel="stylesheet" />
+    <script src="scripts/common.js"></script>
+    <script src="scripts/storage.js"></script>
+    <script src="scripts/settings.js"></script>
+    <script src="scripts/restriction.js"></script>
+    <script src="scripts/picker/jquery-3.3.1.min.js"></script>
+    <script src="scripts/picker/clockpicker.min.js"></script>
+</head>
+
+<body style="background-color: rgb(217, 226, 251);">
+    <div class="content">
+        <div class="header">
+            <p class="title">MindfulSurf</p>
+        </div>
+        <div id='nav' class="nav">
+            <a id='settingsBtn' class="active">Settings</a>
+            <a id='restrictionsBtn'>Limits</a>
+            <a id='notifyBtn'>Notifications</a>
+            <a id='aboutBtn'>About</a>
+        </div>
+        <div id='block'>
+            <div id='settingsBlock'>
+                <div class="separator"></div>
+                <div class="margin-top-10">
+                    <div class="margin-top-10">
+                        <label class="setting-header">Data in memory use </label><label id='memoryUse'></label>
+                    </div>
+                    <div class="margin-top-10"><input type="button" value="Clear all data" id='clearAllData'></div>
+                    <div class="notify" id='notify' hidden>
+                        Data successfully deleted
+                    </div>
+                </div>
+            </div>
+            <div id='restrictionsBlock' hidden>
+                <label class="setting-header">Access daily restrictions for websites: </label>
+                <div class="tooltip"><img src="/icons/information.svg" height="18" />
+                    <span class="tooltiptext">Set the maximum time allowed on the site per day. After this time, has elapsed the site will be blocked.</span>
+                </div>
+                <div class="margin-top-10">
+                    <input type="text" class="label-with-list" placeholder="Enter site name..."
+                        id='addRestrictionSiteLbl' />
+                    <div class="inline-block clockpicker" data-placement="left" data-align="top" data-autoclose="true">
+                        <input type="text" class="clock" placeholder="Time..." readonly id="addRestrictionTimeLbl">
+                    </div>
+                    <input type="button" value="+" class="btn-with-list" id='addRestrictionSiteBtn' />
+                </div>
+                <div class="margin-top-10">
+                    <ul id='restrictionsList' class="listbox list" size="10"></ul>
+                </div>
+                <div class="notify warning notify-width-300" id='notifyForRestrictionList' hidden>
+                    The site is already in the list
+                </div>
+            </div>
+            <div id='notifyBlock' hidden>
+                <label class="setting-header">List of sites with notifications: </label>
+                <div class="tooltip"><img src="/icons/information.svg" height="18" />
+                    <span class="tooltiptext">Show notifications every time you spend a specified time interval on the
+                        site</span>
+                </div>
+                <div class="margin-top-10">
+                    <input type="text" class="label-with-list" placeholder="Enter site name..." id='addNotifySiteLbl' />
+                    <div class="inline-block clockpicker" data-placement="left" data-align="top" data-autoclose="true">
+                        <input type="text" class="clock" placeholder="Time..." readonly id="addNotifyTimeLbl">
+                    </div>
+                    <input type="button" class="btn-with-list" value="+" id='addNotifySiteBtn' />
+                </div>
+                <div class="margin-top-10">
+                    <ul id='notifyList' class="listbox list" size="10"></ul>
+                </div>
+                <div class="margin-top-10">
+                    <label class="setting-header">You can set message for notification: </label>
+                    <div class="setting-notify-block">
+                        <img src="icons/128x128.png" class="setting-notify-img">
+                        <div class="setting-notify-message-block">
+                            <span class="setting-notify-title">Web Activity Time Tracker</span>
+                            <input type="text" class="setting-notify-message" id="notifyMessage" />
+                        </div>
+                    </div>
+                </div>
+                <div class="margin-top-10">
+                    <label class="block">In order to Web Activity Time Tracker showed notifications every time you spend
+                        a specified time interval on the site, you need grant permission to access for notifications.
+                    </label>
+                    <input class="margin-top-10 permission-btn" type="button" value="Grant permission"
+                        id='grantPermissionForNotifications'>
+                    <div id='permissionSuccessedBlockForNotifications' hidden>
+                        <img src="/icons/success.png" height="18" />
+                        <label class="setting-header">Permissions have been granted</label>
+                    </div>
+                </div>
+                <div class="notify warning notify-width-300" id='notifyForNotifyList' hidden>
+                    The site is already in the notify list
+                </div>
+            </div>
+            <div id='aboutBlock' hidden>
+                <h1>ISTE DEVSPRINT</h1>
+                <h3>Made by-</h3>
+                <p>Pragya Gupta</p>
+                <p>Ruthvik Avadhanam</p>
+                <p>Shivam Singh</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
